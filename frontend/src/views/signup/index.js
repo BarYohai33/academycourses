@@ -4,24 +4,53 @@ import Form from './components/form.component'
 class Signup extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
 
-    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      lastname:'',
+      firstname:'',
+      city:'',
+      email:'',
+      password:'',
+      passwordRepeat:'',
+      errors: {}
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
+  handleInputChange(e) {
+        this.setState({
+            lastname: e.target.value
+        })
+    
+    }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
+   handleSubmit(e) {
+        e.preventDefault();
+        const user = {
+            lastname: this.state.lastname,
+            firstname: this.state.firstname,
+            city: this.state.city,
+            email: this.state.email,
+            password: this.state.password,
+            passwordRepeat: this.state.passwordRepeat
+        }
+        console.log(user);
+    }
 
   render() {
     return (
-      <Form/>
+      <Form
+      lastname={this.state.lastname}
+      firstname={this.state.firstname}
+      city={this.state.city}
+      email={this.state.email}
+      password={this.state.password}
+      passwordRepeat={this.state.passwordRepeat}
+      onChange={this.handleInputChange}
+      onSubmit={this.handleSubmit}
+      />
 
     );
   }

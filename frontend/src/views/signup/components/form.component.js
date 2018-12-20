@@ -12,26 +12,63 @@ import { Route } from 'react-router-dom';
 import Style from '../styles/form.style';
 const SignupForm = props => (
 	<Grid container direction="row" justify="center" alignItems="center">
-		<FormControl style={ Style.form }>
-			<Input
-			placeholder="Nom"/>
-			<Input
-			placeholder="Prenom"/>
-			<Input
-			placeholder="Ville"/>
-			<Input
-			placeholder="Prenom"/>
-			<Input
-			placeholder="E-mail"/>
-			<Input
-			placeholder="Mot de passe"/>
-			<Input
-			placeholder="Confirmer le mot de passe"/>
-			<Route render={({ history }) => (
-			<Button variant="contained" color="primary" style={Style.button}
-			onClick={() => { history.push('/home') }}>
+		<FormControl style={ Style.form } onSubmit={ props.onSubmit }>
+		<Input
+		type="text"
+            placeholder="Nom"
+            className="form-control"
+            name="lastname"
+            onChange={ props.onChange }
+            value={ props.lastname }
+            />
+            <Input
+		type="text"
+            placeholder="Prénom"
+            className="form-control"
+            name="firstname"
+            onChange={ props.onChange }
+            value={ props.firstname }
+            />
+            <Input
+			type="text"
+            placeholder="Ville"
+            className="form-control"
+            name="city"
+            onChange={ props.onChange }
+            value={ props.city }
+            />
+            <Input
+			type="text"
+            placeholder="Email"
+            className="form-control"
+            name="email"
+            onChange={ props.onChange }
+            value={ props.email }
+            />
+            <Input
+		type="text"
+            placeholder="Mot de passe"
+            className="form-control"
+            name="password"
+            onChange={ props.onChange }
+            value={ props.password }
+            />
+            <Input
+		type="text"
+            placeholder="Répétez le mot de passe"
+            className="form-control"
+            name="passwordRepeat"
+            onChange={ props.onChange }
+            value={ props.passwordRepeat }
+            />
+			<Button 
+			variant="contained" 
+			color="primary" 
+			style={Style.button} 
+			type="submit"
+			>
 			S'inscrire 
-      		</Button> )} />
+      		</Button> 
 		</FormControl>
 	</Grid>
 
