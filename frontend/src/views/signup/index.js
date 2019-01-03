@@ -1,5 +1,9 @@
 import React from 'react';
 import Form from './components/form.component'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { signupUser } from '../../actions/authentication'
 
 class Signup extends React.Component {
   constructor(props) {
@@ -20,8 +24,8 @@ class Signup extends React.Component {
   }
 
   handleInputChange(e) {
-        this.setState({
-            lastname: e.target.value
+     this.setState({
+            [e.target.name]: e.target.value
         })
     
     }
@@ -29,14 +33,22 @@ class Signup extends React.Component {
    handleSubmit(e) {
         e.preventDefault();
         const user = {
+            name: this.state.firstname,
             lastname: this.state.lastname,
-            firstname: this.state.firstname,
             city: this.state.city,
             email: this.state.email,
             password: this.state.password,
-            passwordRepeat: this.state.passwordRepeat
+            password_confirm: this.state.passwordRepeat
         }
-        console.log(user);
+        this.props.signupUser(user, this.props.history);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
     }
 
   render() {
@@ -56,4 +68,12 @@ class Signup extends React.Component {
   }
 }
 
-export default Signup;
+Signup.propTypes = {
+    signupUser: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = state => ({
+    errors: state.errors
+});
+
+export default connect(mapStateToProps,{ signupUser })(withRouter(Signup))

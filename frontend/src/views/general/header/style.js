@@ -1,7 +1,6 @@
 const styles = {
   root: {
     flexGrow: 1,
-    width: '30%'
   },
   grow: {
     flexGrow: 1,
@@ -10,9 +9,10 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
-  buttonRight: {
-    float: 'right'
+  link: {
+    color: 'white',
+    textDecoration: 'none'
   }
 };
 
-export default { styles };
+export default styles;

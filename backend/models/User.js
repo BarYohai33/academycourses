@@ -7,13 +7,21 @@ const UserSchema = new Schema({
 		type: String,
 		required: true
 	},
+	firstname: {
+		type: String,
+		required: true
+	},
+	lastname: {
+		type: String,
+		required: true
+	},
 	email: {
 		type: String,
 		required: true
 	},
 	password: {
-	type : String,
-	required: true
+		type : String,
+		required: true
 	},
 	avatar: {
 		type: String
@@ -24,6 +32,6 @@ const UserSchema = new Schema({
 	}
 });
 
-const User = mongoose.model('users', UserSchema)
+const User = mongoose.model('User', UserSchema)
 
 module.export = User;
