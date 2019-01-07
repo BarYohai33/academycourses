@@ -5,6 +5,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { Route } from 'react-router-dom';
+import classnames from 'classnames';
 
 
 
@@ -15,13 +16,16 @@ const LoginForm = props => (
       <FormControl>
             <FormControl style={ Style.form }>
             <Input
-            type="text"
+            type="email"
             placeholder="Email"
-            className="form-control"
+            className={classnames('form-control form-control-lg', {
+                        'is-invalid': props.errors.email
+                    })}
             name="email"
             onChange={ props.onChange }
             value={ props.email }
             />
+            {props.errors.email && (<div className="invalid-feedback">{props.errors.email}</div>)}
             </FormControl>
             <FormControl style={ Style.form }>
             <Input

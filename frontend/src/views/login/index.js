@@ -1,5 +1,9 @@
 import React from 'react';
 import Form from './components/form.component'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { loginUser } from '../../actions/authentication'
 
 class Login extends React.Component {
   constructor(props) {
@@ -28,20 +32,38 @@ class Login extends React.Component {
             email: this.state.email,
             password: this.state.password,  
         }
-        console.log(user);
+        //console.log(user);
     }
 
-  render() {
-    return (
-      <Form
-      email={this.state.email}
-      password={this.state.password}
-      onChange={this.handleInputChange}
-      onSubmit={this.handleSubmit}
-      />
+    componentWillReceiveProps(nextProps) {
 
-    );
+        if(nextProps.errors) {
+            this.setState({
+                errors: nextProps.errors
+            });
+        }
+    }
+
+    render() {
+      const {errors} = this.state;
+      return (
+        <Form
+        email={this.state.email}
+        password={this.state.password}
+        onChange={this.handleInputChange}
+        onSubmit={this.handleSubmit}
+        errors={this.state.errors}
+        />
+
+      );
+    }
   }
+  
+Login.propTypes = {
+    errors: PropTypes.object.isRequired
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+    errors: state.errors
+})
+export default connect(mapStateToProps,{ loginUser })(withRouter(Login))

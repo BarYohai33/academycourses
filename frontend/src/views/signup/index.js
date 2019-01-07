@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { signupUser } from '../../actions/authentication'
 
+
 class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -52,6 +53,7 @@ class Signup extends React.Component {
     }
 
   render() {
+    const { errors } = this.state;
     return (
       <Form
       lastname={this.state.lastname}
@@ -62,6 +64,7 @@ class Signup extends React.Component {
       passwordRepeat={this.state.passwordRepeat}
       onChange={this.handleInputChange}
       onSubmit={this.handleSubmit}
+      errors={this.state.errors}
       />
 
     );
