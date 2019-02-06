@@ -4,7 +4,7 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
-const validateRegisterInput = require('../validation/register');
+const validateRegisterInput = require('../validation/signup');
 const validateLoginInput = require('../validation/login');
 
 const User = require('../models/User');
@@ -22,7 +22,7 @@ router.post('/signup', function(req, res) {
     }).then(user => {
         if(user) {
             return res.status(400).json({
-                email: 'Email already exists'
+                email: 'Cette e-mail existe déjà'
             });
         }
         else {
@@ -32,8 +32,10 @@ router.post('/signup', function(req, res) {
                 d: 'mm'
             });
             const newUser = new User({
-                name: req.body.name,
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
                 email: req.body.email,
+                city: req.body.city,
                 password: req.body.password,
                 avatar
             });
@@ -72,7 +74,7 @@ router.post('/login', (req, res) => {
     User.findOne({email})
         .then(user => {
             if(!user) {
-                errors.email = 'User not found'
+                errors.email = 'E-mail non reconnu'
                 return res.status(404).json(errors);
             }
             bcrypt.compare(password, user.password)
@@ -80,7 +82,7 @@ router.post('/login', (req, res) => {
                         if(isMatch) {
                             const payload = {
                                 id: user.id,
-                                name: user.name,
+                                firstname: user.firstname,
                                 avatar: user.avatar
                             }
                             jwt.sign(payload, 'secret', {
@@ -96,7 +98,7 @@ router.post('/login', (req, res) => {
                             });
                         }
                         else {
-                            errors.password = 'Incorrect Password';
+                            errors.password = 'Mot de passe érroné';
                             return res.status(400).json(errors);
                         }
                     });
@@ -106,7 +108,7 @@ router.post('/login', (req, res) => {
 router.get('/me', passport.authenticate('jwt', { session: false }), (req, res) => {
     return res.json({
         id: req.user.id,
-        name: req.user.name,
+        firstname: req.user.firstname,
         email: req.user.email
     });
 });
