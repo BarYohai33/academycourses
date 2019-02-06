@@ -8,6 +8,11 @@ const users = require('./routes/user');
 const courses = require('./routes/course');
 const classes = require('./routes/classe');
 const advices = require('./routes/advice');
+const payments = require('./routes/payment');
+
+
+
+
 
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
@@ -21,11 +26,13 @@ require('./passport')(passport);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(require("body-parser").text());
 
 app.use('/api/users', users);
 app.use('/api', courses);
 app.use('/api', classes);
 app.use('/api', advices);
+app.use('/', payments);
 
 app.get('/', function(req, res) {
     res.send('hello');
