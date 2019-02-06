@@ -32,11 +32,20 @@ class Login extends React.Component {
             email: this.state.email,
             password: this.state.password,  
         }
+        this.props.loginUser(user);
         //console.log(user);
+    }
+    
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/');
+        }
     }
 
     componentWillReceiveProps(nextProps) {
-
+        if(nextProps.auth.isAuthenticated) {
+            this.props.history.push('/')
+        }
         if(nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
@@ -45,7 +54,7 @@ class Login extends React.Component {
     }
 
     render() {
-      const {errors} = this.state;
+      const { errors } = this.state;
       return (
         <Form
         email={this.state.email}
@@ -58,12 +67,15 @@ class Login extends React.Component {
       );
     }
   }
-  
+
 Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
+    auth: state.auth,
     errors: state.errors
 })
 export default connect(mapStateToProps,{ loginUser })(withRouter(Login))

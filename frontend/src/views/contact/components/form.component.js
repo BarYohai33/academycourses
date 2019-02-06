@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom';
 
 // Style
 import Style from '../styles/form.style';
-const LoginForm = props => (
+const ContactForm = props => (
   <Grid container direction="row" justify="center" alignItems="center">
       <FormControl>
             <FormControl style={ Style.form }>
@@ -16,32 +16,23 @@ const LoginForm = props => (
             type="email"
             placeholder="Email"
             name="email"
-            onChange={ props.onChange }
-            value={ props.email }
-            error= {props.errors.email}
             />
             </FormControl>
-            {props.errors.email && (<div style={Style.error}>{props.errors.email}</div>)}
             <FormControl style={ Style.form }>
             <Input
             type="password"
             placeholder="Mot de passe"
             className="form-control"
             name="password"
-            onChange={ props.onChange }
-            value={ props.password }
-            error= {props.errors.password}
             />
             </FormControl>
-            {props.errors.password && (<div style={Style.error}>{props.errors.password}</div>)}
             <Button 
             variant="contained" 
             color="primary" 
             style={Style.button} 
             type="submit"
-            onClick={props.onSubmit}
             >
-            Se connecter 
+            Envoyer à l'administrateur 
             </Button> 
     </FormControl>
     
@@ -49,4 +40,4 @@ const LoginForm = props => (
 
 
 )
-export default LoginForm;
+export default ContactForm;

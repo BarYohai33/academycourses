@@ -34,21 +34,29 @@ class Signup extends React.Component {
    handleSubmit(e) {
         e.preventDefault();
         const user = {
-            name: this.state.firstname,
+            firstname: this.state.firstname,
             lastname: this.state.lastname,
             city: this.state.city,
             email: this.state.email,
             password: this.state.password,
-            password_confirm: this.state.passwordRepeat
+            passwordRepeat: this.state.passwordRepeat
         }
         this.props.signupUser(user, this.props.history);
     }
-
     componentWillReceiveProps(nextProps) {
+        if(nextProps.auth.isAuthenticated) {
+            this.props.history.push('/')
+        }
         if(nextProps.errors) {
             this.setState({
                 errors: nextProps.errors
             });
+        }
+    }
+
+    componentDidMount() {
+        if(this.props.auth.isAuthenticated) {
+            this.props.history.push('/');
         }
     }
 
@@ -73,9 +81,11 @@ class Signup extends React.Component {
 
 Signup.propTypes = {
     signupUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
+    auth: state.auth,
     errors: state.errors
 });
 

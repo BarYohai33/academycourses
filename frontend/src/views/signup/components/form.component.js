@@ -5,7 +5,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
 import Button from '@material-ui/core/Button';
 import { Route } from 'react-router-dom';
-import classnames from 'classnames';
 
 
 
@@ -18,68 +17,68 @@ const SignupForm = props => (
 		<Input
 		type="text"
             placeholder="Nom"
-            className="form-control"
             name="lastname"
             onChange={ props.onChange }
             value={ props.lastname }
+            error= {props.errors.lastname}
             />
             </FormControl>
+            {props.errors.lastname && (<div style={Style.error}>{props.errors.lastname}</div>)}
             <FormControl style={ Style.form }>
             <Input
 		type="text"
             placeholder="Prénom"
-            className="form-control"
             name="firstname"
             onChange={ props.onChange }
             value={ props.firstname }
+            error= {props.errors.firstname}
             />
             </FormControl>
+            {props.errors.firstname && (<div style={Style.error}>{props.errors.firstname}</div>)}
             <FormControl style={ Style.form }>
             <Input
 		type="text"
             placeholder="Ville"
-            className="form-control"
             name="city"
             onChange={ props.onChange }
             value={ props.city }
+            error= {props.errors.city}
             />
             </FormControl>
+            {props.errors.city && (<div style={Style.error}>{props.errors.city}</div>)}
             <FormControl style={ Style.form }>
             <Input
 		type="email"
             placeholder="Email"
-            className={classnames('form-control form-control-lg', {
-                        'is-invalid': props.errors.email
-                    })}
             name="email"
             onChange={ props.onChange }
             value={ props.email }
+            error= {props.errors.email}
             />
-            {props.errors.email && (<div className="invalid-feedback">{props.errors.email}</div>)}
             </FormControl>
+            {props.errors.email && (<div style={Style.error}>{props.errors.email}</div>)}
             <FormControl style={ Style.form }>
             <Input
-		type="text"
+		type="password"
             placeholder="Mot de passe"
-            className={classnames('form-control form-control-lg', {
-                        'is-invalid': props.errors.password
-                    })}
             name="password"
             onChange={ props.onChange }
             value={ props.password }
+            error= {props.errors.password}
             />
-            {props.errors.password && (<div className="invalid-feedback">{props.errors.password}</div>)}
             </FormControl>
+            {props.errors.password && (<div style={Style.error}>{props.errors.password}</div>)}
             <FormControl style={ Style.form }>
             <Input
-		type="text"
+		type="password"
             placeholder="Répétez le mot de passe"
-            className="form-control"
             name="passwordRepeat"
             onChange={ props.onChange }
             value={ props.passwordRepeat }
+            error= {props.errors.passwordRepeat}
             />
             </FormControl>
+            {props.errors.passwordRepeat && (<div style={Style.error}>{props.errors.passwordRepeat}</div>)}
 		<Button 
 		variant="contained" 
 		color="primary" 
