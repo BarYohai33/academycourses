@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Signup from './views/signup'
 import Login from './views/login'
 import Home from './views/home'
+import Contact from './views/contact'
 import ButtonAppBar from './views/general/header';
 import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -33,6 +34,7 @@ class App extends Component {
       		<Route exact path="/" component={Home} />
       		<Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/contact" component={Contact} />
       	</div>
     	</Router>
     </Provider>

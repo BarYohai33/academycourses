@@ -56,13 +56,16 @@ class Login extends React.Component {
     render() {
       const { errors } = this.state;
       return (
-        <Form
-        email={this.state.email}
-        password={this.state.password}
-        onChange={this.handleInputChange}
-        onSubmit={this.handleSubmit}
-        errors={this.state.errors}
-        />
+        <div>
+          <h1 style={{textAlign:'center',}}> Connexion </h1>
+          <Form
+          email={this.state.email}
+          password={this.state.password}
+          onChange={this.handleInputChange}
+          onSubmit={this.handleSubmit}
+          errors={this.state.errors}
+          />
+        </div>
 
       );
     }

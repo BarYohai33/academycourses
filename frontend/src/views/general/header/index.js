@@ -30,7 +30,7 @@ class ButtonAppBar extends React.Component {
     const {isAuthenticated, user} = this.props.auth;
     return (
       <div className={classes.root}>
-        <AppBar position="static">
+        <AppBar position="static" className={classes.colorBar}>
           <Toolbar>
             <Typography variant="h6" color="inherit" className={classes.grow}><Link to="/" className={classes.link}>
               Académie pour tous
@@ -39,7 +39,7 @@ class ButtonAppBar extends React.Component {
             {isAuthenticated ? (
             <div>
             <Link to="/" className={classes.link}><Button color="inherit">Accueil</Button></Link>
-            <Button color="inherit">Contact</Button> 
+            <Link to="/contact" className={classes.link}><Button color="default">Contact</Button></Link>
             <Button color="default" onClick={this.onLogout.bind(this)}>{user.firstname}</Button> 
             </div>
             ) : (

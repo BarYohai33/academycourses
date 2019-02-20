@@ -63,17 +63,20 @@ class Signup extends React.Component {
   render() {
     const { errors } = this.state;
     return (
-      <Form
-      lastname={this.state.lastname}
-      firstname={this.state.firstname}
-      city={this.state.city}
-      email={this.state.email}
-      password={this.state.password}
-      passwordRepeat={this.state.passwordRepeat}
-      onChange={this.handleInputChange}
-      onSubmit={this.handleSubmit}
-      errors={this.state.errors}
-      />
+      <div>
+        <h1 style={{textAlign:'center',}}> Inscription </h1>
+        <Form
+        lastname={this.state.lastname}
+        firstname={this.state.firstname}
+        city={this.state.city}
+        email={this.state.email}
+        password={this.state.password}
+        passwordRepeat={this.state.passwordRepeat}
+        onChange={this.handleInputChange}
+        onSubmit={this.handleSubmit}
+        errors={this.state.errors}
+        />
+      </div>
 
     );
   }
