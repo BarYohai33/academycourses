@@ -57,7 +57,7 @@ class Login extends React.Component {
       const { errors } = this.state;
       return (
         <div>
-          <h1 style={{textAlign:'center',}}> Connexion </h1>
+          <h1 style={{fontFamily:'Dancing Script',fontSize:'50px',textAlign:'center'}}> Connexion </h1>
           <Form
           email={this.state.email}
           password={this.state.password}

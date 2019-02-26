@@ -64,7 +64,7 @@ class Signup extends React.Component {
     const { errors } = this.state;
     return (
       <div>
-        <h1 style={{textAlign:'center',}}> Inscription </h1>
+        <h1 style={{fontFamily:'Dancing Script',fontSize:'50px',textAlign:'center'}}> Inscription </h1>
         <Form
         lastname={this.state.lastname}
         firstname={this.state.firstname}

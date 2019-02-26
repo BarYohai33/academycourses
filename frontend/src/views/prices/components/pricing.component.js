@@ -12,6 +12,8 @@ import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+
 
 const styles = theme => ({
   '@global': {
@@ -64,30 +66,35 @@ const styles = theme => ({
 function Pricing(props) {
   const { classes } = props;
   return (
-      <Grid item xs={12} sm={6} md={4}>
+      
         <Card>
           <CardHeader
           title={props.coursetype}
-          subheader={props.to}
+          subheader={props.adapted}
           titleTypographyProps={{ align: 'center' }}
           subheaderTypographyProps={{ align: 'center' }}
           action={null}
           className={classes.cardHeader}
           />
           <CardContent>
+          <div className={classes.cardPricing}>
+          <div style={{fontStyle:'italic',fontSize:'80px'}}>{props.price}</div>
+           </div>
             <div className={classes.cardPricing}>
-              <a href="#">{props.discover}</a>
+              <div style={{fontStyle:'italic'}}>{props.discover}</div>
             </div>
             <Typography variant="subtitle1" align="center">
             </Typography>
           </CardContent>
           <CardActions className={classes.cardActions}>
-            <Button fullWidth color="primary">
-              Voir les tarifs
+          <Grid container direction="row" justify="center">
+            <Link to={props.to} style={{textDecoration:'none',textAlign:'center'}}><Button fullWidth color="primary">
+              {props.button}
             </Button>
+            </Link>
+          </Grid>
           </CardActions>
         </Card>
-      </Grid>
   );
 }
 

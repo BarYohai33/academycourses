@@ -9,7 +9,7 @@ import { Route } from 'react-router-dom';
 // Style
 import Style from '../styles/form.style';
 const LoginForm = props => (
-  <Grid container direction="row" justify="center" alignItems="center">
+  <Grid container direction="row" justify="center" alignItems="center" style={{backgroundColor:'#e6e6e6'}}>
       <FormControl>
             <FormControl style={ Style.form }>
             <Input

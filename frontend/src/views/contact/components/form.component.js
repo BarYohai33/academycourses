@@ -12,7 +12,7 @@ import Style from '../styles/form.style';
 const ContactForm = props => (
 <div>
     <MediaQuery query="(min-device-width: 850px)">
-      <Grid container direction="row" justify="center" alignItems="center">
+      <Grid container direction="row" justify="center" alignItems="center" style={{backgroundColor:'#e6e6e6'}}>
           <FormControl>
                 <FormControl style={ Style.formHighScreen }>
                 <Input
