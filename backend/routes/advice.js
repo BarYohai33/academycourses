@@ -5,19 +5,19 @@ const passport = require('passport');
 const Advice = require('../models/Advice');
 
 router.post('/advice', passport.authenticate('jwt', { session: false }), async (req, res) => { 
-    const advice = await Advice.findOne({
-        advice: req.body.advice 
-    })
+    // const adviceMessage = await Advice.findOne({
+    //     message: req.body.message 
+    // })
     
-    if (advice !== null) {
-        return res.status(400).json({
-            advice: "Remplissez le champs"
-        });
-    }
+    // if (adviceMessage !== null) {
+    //     return res.status(400).json({
+    //         advice: "Remplissez les champs"
+    //     });
+    // }
     
     const newAdvice = new Advice({
         user_id: req.user._id,
-        advice: req.body.advice,
+        message: req.body.message,
         date: Date.now()
     });
     const createdAdvice = await newAdvice.save();

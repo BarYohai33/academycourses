@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const AdviceSchema = new Schema({
     user_id: String,
-    advice: String,
+    message: String,
     date: Date
 });
 

@@ -2,18 +2,39 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import StarRatings from 'react-star-ratings';
 import MediaQuery from 'react-responsive';
-
-import Style from '../styles/advice.style'
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import Button from '@material-ui/core/Button';
+import store from '../../../store';
+import Style from '../styles/advice.style';
+import { createAdvice } from '../../../actions/advice';
 
 class Advice extends React.Component {
     constructor(props) {
     super(props);
   
 		this.changeRating = this.changeRating.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleMessageChange = this.handleMessageChange.bind(this);
 		this.state = { 
-		rating: 0 
+			rating: 0,
+			message: ''
 		};
 	}
+
+
+	handleSubmit(e) {
+		e.preventDefault();
+		console.log(store.getState());
+		console.log(this.state.message)
+		store.dispatch(createAdvice(this.state.message))
+		console.log(store.getState());
+		console.log(this.state.message)
+	}
+
+	handleMessageChange (e) {
+		this.setState({ message: e.target.value });
+ 	}
 
   changeRating(rating) {
     this.setState({
@@ -25,6 +46,29 @@ class Advice extends React.Component {
 
      return (
      	<div>
+			<FormControl>
+        <Input
+        type="message"
+        placeholder="Ajouter un avis"
+        className="form-control"
+				name="message"
+				value={this.state.message}
+				onChange={this.handleMessageChange}
+        multiline={true}
+        rows={5}
+        rowsMax={8}
+        width={100}
+        />
+				<Button 
+				variant="contained" 
+				color="primary" 
+				style={Style.button} 
+				type="submit"
+				onClick={this.handleSubmit}
+				>
+				Ajouter l'avis
+				</Button> 
+      </FormControl>
      	<MediaQuery query="(min-device-width: 850px)">
 		<Grid container  style={Style.block}>
 			<Grid item xs={6} sm={6} md={9}>
