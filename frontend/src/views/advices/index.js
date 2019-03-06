@@ -5,9 +5,44 @@ import StarRatings from 'react-star-ratings';
 import Button from '@material-ui/core/Button';
 import MediaQuery from 'react-responsive';
 import ratingPicture from './img/rating.jpg';
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import Style from './styles/advice.style'
+import store from '../../store';
+import { createAdvice, setAdvice } from '../../actions/advice';
 
 class Advices extends Component {
+    constructor(props) {
+    super(props);
+  
+    this.changeRating = this.changeRating.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleMessageChange = this.handleMessageChange.bind(this);
+        this.state = { 
+            rating: 0,
+            message: ''
+        };
+    }
+
+
+    handleSubmit(e) {
+        e.preventDefault();
+        store.dispatch(createAdvice(this.state.message, this.state.rating))
+    }
+
+    handleMessageChange (e) {
+        this.setState({ message: e.target.value });
+    }
+
+
+  changeRating(rating) {
+    this.setState({
+      rating: rating
+    })
+  }
+
   render() {
+    
     return (
     <div>
      <MediaQuery query="(min-device-width: 850px)">
@@ -22,7 +57,45 @@ class Advices extends Component {
       />
     </div>
     </MediaQuery>
+    <div style={{textAlign:'center',}}>
+     <FormControl>
+            <Input
+            type="message"
+            placeholder="Ajouter un avis"
+            className="form-control"
+            name="message"
+            value={this.state.message}
+            onChange={this.handleMessageChange}
+            multiline={true}
+            rows={5}
+            rowsMax={8}
+            width={100}
+            />
+            <h3>Notez votre avis</h3>
+            <StarRatings
+            rating={this.state.rating}
+            changeRating={this.changeRating}
+            starRatedColor="#f5f900"
+            numberOfStars={5}
+            name='rating'
+            starDimension="28px"
+            starSpacing="2px"
+            starHoverColor="#f5f900"
+            />
+            <Button 
+            variant="contained" 
+            color="primary" 
+            style={{marginTop:'10px',}} 
+            type="submit"
+            onClick={this.handleSubmit}
+            >
+            Vous aussi donnez votre avis
+            </Button> 
+      </FormControl>
+      </div>
+      <div> {this.state.message} </div>
     <Grid container direction="column" justify="center">
+           
     <h1  
     style={{fontFamily:'Dancing Script',fontSize:'50px',textAlign:'center'}}> 
     Tout le monde en parle ... 
@@ -58,7 +131,7 @@ Pellentesque quis blandit risus. Donec metus mauris, efficitur ut ligula eu, vol
             date='09/02/2019'
             pseudo='Nathan Marciano'
             rating={4.5}
-            advice=" Ces cours m'ont amener vers une réussite certaine Ces cours m'ont amener vers une réussite certaine"
+            advice="Ces cours m'ont amener vers une réussite certaine Ces cours m'ont amener vers une réussite certaine"
             />
           </Grid>
           <Grid item xs={12} sm={12} md={7} style={{marginTop:'20px'}}>

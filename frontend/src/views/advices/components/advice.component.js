@@ -9,11 +9,12 @@ import store from '../../../store';
 import Style from '../styles/advice.style';
 import { createAdvice } from '../../../actions/advice';
 
+
 class Advice extends React.Component {
     constructor(props) {
     super(props);
   
-		this.changeRating = this.changeRating.bind(this);
+	this.changeRating = this.changeRating.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
 		this.state = { 
@@ -46,29 +47,7 @@ class Advice extends React.Component {
 
      return (
      	<div>
-			<FormControl>
-        <Input
-        type="message"
-        placeholder="Ajouter un avis"
-        className="form-control"
-				name="message"
-				value={this.state.message}
-				onChange={this.handleMessageChange}
-        multiline={true}
-        rows={5}
-        rowsMax={8}
-        width={100}
-        />
-				<Button 
-				variant="contained" 
-				color="primary" 
-				style={Style.button} 
-				type="submit"
-				onClick={this.handleSubmit}
-				>
-				Ajouter l'avis
-				</Button> 
-      </FormControl>
+
      	<MediaQuery query="(min-device-width: 850px)">
 		<Grid container  style={Style.block}>
 			<Grid item xs={6} sm={6} md={9}>
@@ -79,7 +58,6 @@ class Advice extends React.Component {
 			<div style={{marginLeft:'auto', marginRight:0}}>	
 			<StarRatings
 				rating={this.props.rating}
-				changeRating={this.changeRating}
 				starRatedColor="#f5f900"
 				numberOfStars={5}
 				name='rating'
@@ -102,7 +80,7 @@ class Advice extends React.Component {
 			<Grid item xs={6} sm={6} md={6}>
 			<div style={{marginLeft:'40px'}}>{this.props.date}</div>
 			<div>	
-			<StarRatings
+				<StarRatings
 				rating={this.props.rating}
 				changeRating={this.changeRating}
 				starRatedColor="#f5f900"
