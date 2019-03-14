@@ -2,7 +2,8 @@ import { CREATE_ADVICE, LIST_ADVICE } from '../actions/types';
 
 const initialState = {
   message: '',
-  rating: 0
+  rating: 0,
+  messages: []
 }
 
 export default function(state = initialState, action) {

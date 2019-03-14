@@ -87,7 +87,7 @@ class Advice extends React.Component {
 				numberOfStars={5}
 				name='rating'
 				starDimension="23px"
-				starSpacing="1px"
+				starSpacing="1px"	
 				starHoverColor="#f5f900"
 				/>
 			</div>

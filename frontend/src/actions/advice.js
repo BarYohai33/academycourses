@@ -33,7 +33,7 @@ export const setAdvice = (advice, rating) =>  {
 export const setLastAdvice = (advices) =>  {
   return {
       type: LIST_ADVICE,
-      messages: advices,     
+      messages: advices,
   }
 }
 

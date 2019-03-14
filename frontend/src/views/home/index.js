@@ -3,6 +3,7 @@ import React from 'react';
 // import CheckoutForm from '../payment/components/CheckoutForm'
 import Pricing from '../prices/components/pricing.component'
 import Advice from '../advices/components/advice.component'
+import LastAdvice from '../advices/components/lastAdvice.component'
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -222,33 +223,11 @@ class Home extends React.Component {
           </div>
         <hr width="30%" style={{marginTop:'30px'}}/>
       <h1 className={classes.centered} style={{fontFamily:'Dancing Script',fontSize:'50px'}}> Tout le monde en parle ...</h1>
-      
-        <Grid container direction="row" justify="center">
-          <Grid item xs={10} sm={6} md={3} style={{marginRight:'20px',marginTop:'20px'}}>
-            <Advice
-            date='12/02/2019'
-            pseudo='David Cohen'
-            rating={3}
-            advice="Ces cours m'ont amener vers une réussite certaine"
-            />
-          </Grid>
-          <Grid item xs={10} sm={6} md={3} style={{marginRight:'20px',marginTop:'20px'}}>
-            <Advice
-            date='09/02/2019'
-            pseudo='Nathan Marciano'
-            rating={1}
-            advice=" Ces cours m'ont amener vers une réussite certaine Ces cours m'ont amener vers une réussite certaine"
-            />
-          </Grid>
-          <Grid item xs={10} sm={6} md={3} style={{marginRight:'20px',marginTop:'20px'}}>
-            <Advice
-            date='03/02/2019'
-            pseudo='Willy Zagdhounerie'
-            rating={4}
-            advice="Poture Copureur Mange tes morts iosjgpr sitjpr  isjfp if jpszzpo kz^fozpf bkabka bkabk  bkabka abkabka  "
-            />
-          </Grid>
-        </Grid>
+      <Grid container direction="row" justify="center">
+      <Grid item xs={10} sm={6} md={3} style={{marginRight:'20px',marginTop:'20px'}}>
+        <LastAdvice/>
+      </Grid>
+      </Grid>
         <Grid container direction="row" justify="center">
             <Link to="/advices" style={{textDecoration:'none'}}>
               <Button style={{marginTop:'10px'}} 
@@ -282,3 +261,31 @@ export default withStyles(styles)(Home);
      //  <ContactUs/>
      //  <Advices/>
      //  <Footer/>
+
+
+
+  //    
+  //      <Advice
+  //      date='12/02/2019'
+  //      pseudo='David Cohen'
+  //      rating={3}
+  //      advice="Ces cours m'ont amener vers une réussite certaine"
+  //      />
+  //    </Grid>
+  //    <Grid item xs={10} sm={6} md={3} style={{marginRight:'20px',marginTop:'20px'}}>
+  //      <Advice
+  //      date='09/02/2019'
+  //      pseudo='Nathan Marciano'
+  //      rating={1}
+  //      advice=" Ces cours m'ont amener vers une réussite certaine Ces cours m'ont amener vers une réussite certaine"
+  //      />
+  //    </Grid>
+  //    <Grid item xs={10} sm={6} md={3} style={{marginRight:'20px',marginTop:'20px'}}>
+  //      <Advice
+  //      date='03/02/2019'
+  //      pseudo='Willy Zagdhounerie'
+  //      rating={4}
+  //      advice="Poture Copureur Mange tes morts iosjgpr sitjpr  isjfp if jpszzpo kz^fozpf bkabka bkabk  bkabka abkabka  "
+  //      />
+  //    </Grid>
+  //  </Grid>

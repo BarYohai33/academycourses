@@ -39,7 +39,7 @@ class Prices extends Component {
                 discover="Nos cours particuliers sont à domicile, dans les locaux ou au domicile du professeur,
                 les locaux se situent au 18-26 rue Goubet Paris 75019, pour les déplacements il faut voir avec le professeur directement."
                 button="Choisir un cours & Un créneau disponible"
-                to="/prices"
+                to="/choiceCourse"
                 />
                 </Grid>
              </Grid>

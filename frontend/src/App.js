@@ -16,9 +16,8 @@ import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authentication';
-import { getLastAdvice } from './actions/advice';
+import { getLastAdvice, setLastAdvice } from './actions/advice';
 
-store.dispatch(getLastAdvice()) 
 if(localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
   const decoded = jwt_decode(localStorage.jwtToken);
@@ -31,6 +30,7 @@ if(localStorage.jwtToken) {
   }
 }
 
+store.dispatch(getLastAdvice())
 class App extends Component {
   render() {
     return (
