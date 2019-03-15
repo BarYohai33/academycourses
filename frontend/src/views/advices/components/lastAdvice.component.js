@@ -12,16 +12,16 @@ function transformDate(date) {
 const LastAdvice = props => (
     <div>
     {props.messages.map((value, index) => {
-      return (
-       
-          <Advice
-          date={transformDate(value.date)}
-          pseudo={value.user.lastname + ' ' + value.user.firstname}
-          rating={value.rating}
-          advice={value.message}
-          />
-        
-      )
+      if (value.user)
+        return (
+            <Advice
+            date={transformDate(value.date)}
+            pseudo={value.user.lastname + ' ' + value.user.firstname}
+            rating={value.rating}
+            advice={value.message}
+            />
+          
+        )
     })}
     </div>
 )

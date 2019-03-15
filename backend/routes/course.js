@@ -21,7 +21,10 @@ router.post('/course', async (req, res) => {
     const createdCourse = await newCourse.save();
     return res.json(createdCourse);
 })
-
+.get('/course', async (req, res) => {
+    const courses = await Course.find({}, { name: 1, price: 1 })
+    return res.json(courses);
+})
 .get('/course/:id', async (req, res) => {
     const course = await Course.findOne({
         _id: req.params.id

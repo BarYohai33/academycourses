@@ -7,7 +7,7 @@ router.post('/classe', async (req, res) => {
     const classe = await Classe.findOne({
         name: req.body.name 
     })
-    
+        
     if (classe !== null) {
         return res.status(400).json({
             name: "Ce cours existe déjà"
@@ -19,7 +19,10 @@ router.post('/classe', async (req, res) => {
     const createdClasse = await newClasse.save();
     return res.json(createdClasse);
 })
-
+.get('/classe', async (req, res) => {
+    const classe = await Classe.find({}, { name: 1 })
+    return res.json(classe);
+})
 .get('/classe/:id', async (req, res) => {
     const classe = await Classe.findOne({
         _id: req.params.id
