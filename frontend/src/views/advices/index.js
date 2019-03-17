@@ -115,8 +115,8 @@ class Advices extends Component {
     </h4> 
     </Grid>
     <Grid container direction="row" justify="center">
-      <Grid key={1} item xs={12} sm={12} md={7} style={{marginTop:'30px'}}>
-        <LastAdvice></LastAdvice>
+      <Grid key={1} item xs={12} sm={12} md={8} >
+        <LastAdvice/>
         </Grid>
         </Grid>
         <Grid container direction="row" justify="center" style={{marginTop:'12px'}}>

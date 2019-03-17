@@ -46,11 +46,11 @@ class Advice extends React.Component {
       // rating = 2;
 
      return (
-     	<div>
+     	<div style={{marginTop:'30px'}}>
 
      	<MediaQuery query="(min-device-width: 850px)">
 		<Grid container  style={Style.block}>
-			<Grid item xs={6} sm={6} md={9}>
+			<Grid item xs={6} sm={6} md={9} >
 				<div style={{fontFamily:'caveat',marginLeft:'4px'}}>{this.props.pseudo}</div>
 			</Grid>
 			
