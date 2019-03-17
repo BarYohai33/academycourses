@@ -6,3 +6,4 @@ export const CREATE_ADVICE = 'CREATE_ADVICE';
 export const LIST_ADVICE = 'LIST_ADVICE';
 export const LIST_CLASSE = 'LIST_CLASSE';
 export const LIST_COURSE = 'LIST_COURSE';
+export const LIST_SLOT = 'LIST_SLOT';

@@ -13,7 +13,7 @@ const Courses = props => (
       {props.courses.map((value, index) => {
          return (
             <Grid item xs={12} sm={6} md={4}>
-               <Link style={{textDecoration:"none"}}to="/dar"><Button style={{maxWidth: '100%', maxHeight: '70px', minWidth: '100%', minHeight: '70px',backgroundColor:'#d4d8dd',fontSize:'30px'}}>{value.name}</Button></Link>
+               <Link style={{textDecoration:"none"}}to="/slots"><Button style={{maxWidth: '100%', maxHeight: '70px', minWidth: '100%', minHeight: '70px',backgroundColor:'#d4d8dd',fontSize:'30px'}}>{value.name}</Button></Link>
             </Grid>
          )
       })}   
