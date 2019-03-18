@@ -9,6 +9,7 @@ import Payment from './views/payment';
 import Courses from './views/courses/index';
 import ChoiceCourse from './views/choiceCourse';
 import Slots from './views/slots';
+import Invoices from './views/invoices';
 import workOnThisPage from './views/workOnThisPage';
 import ButtonAppBar from './views/general/header';
 import Footer from './views/general/footer';
@@ -58,6 +59,7 @@ class App extends Component {
           <Route exact path="/courses" component={Courses} />
           <Route exact path="/workOnThisPage" component={workOnThisPage} />
           <Route exact path="/slots" component={Slots} />
+          <Route exact path="/invoices" component={Invoices} />
           <Footer/>
       	</div>
     	</Router>

@@ -40,6 +40,7 @@ class ButtonAppBar extends React.Component {
             <div>
             <Link to="/" className={classes.link}><Button color="inherit">Accueil</Button></Link>
             <Link to="/contact" className={classes.link}><Button color="default">Contact</Button></Link>
+            <Link to="/invoices" className={classes.link}><Button color="default">Factures</Button></Link>
             <Button color="default" onClick={this.onLogout.bind(this)}>{user.firstname}</Button> 
             </div>
             ) : (

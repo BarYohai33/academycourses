@@ -7,3 +7,5 @@ export const LIST_ADVICE = 'LIST_ADVICE';
 export const LIST_CLASSE = 'LIST_CLASSE';
 export const LIST_COURSE = 'LIST_COURSE';
 export const LIST_SLOT = 'LIST_SLOT';
+export const UPDATE_CURRENT_COURSE = 'UPDATE_CURRENT_COURSE';
+export const CREATE_INVOICE = 'CREATE_INVOICE';
